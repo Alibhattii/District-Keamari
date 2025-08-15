@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>District Keamari Press Club</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script defer src="script.js"></script>
+</head>
+
+<body>
+
+  <header class="navbar">
+    <div class="container nav-inner">
+      <a href="index.html" class="brand" style="display: flex; align-items: center; gap: 0.75rem;">
+        <img src="logo.png" alt="District Keamari Press Club Logo" style="height: 40px; width: auto;" />
+        District Keamari Press Club
+      </a>
+      <button class="nav-toggle" aria-label="Toggle navigation" onclick="document.body.classList.toggle('nav-open')">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="contact.html">Contact Us</a>
+        <a href="news.html">News</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero / About slice -->
+    <section class="hero fade-in">
+      <div class="container hero-inner">
+        <div class="hero-text">
+          <div class="badge">Established 2025</div>
+          <h1>District Keamari Press Club</h1>
+          <p>
+            We are a vibrant community of journalists, storytellers, and media professionals dedicated to excellence in
+            journalism across Keamari District.
+            Our mission is to promote responsible journalism, provide comprehensive training programs, and champion
+            freedom of expression while fostering meaningful connections within the media industry.
+          </p>
+          <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+            <a class="btn" href="about.html">Learn More</a>
+            <a class="btn outline" href="contact.html">Join Us</a>
+          </div>
+        </div>
+        <div class="hero-card">
+          <h3>Who We Are</h3>
+          <p>District Keamari Press Club serves as an independent forum that connects reporters, editors, photographers,
+            videographers, and digital content creators to essential resources, training opportunities, and a supportive
+            professional network.</p>
+          <div style="margin-top: 1.5rem; display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+            <div style="text-align: center;">
+              <div class="stat-number">50+</div>
+              <div class="stat-label">Members</div>
+            </div>
+            <div style="text-align: center;">
+              <div class="stat-number">100+</div>
+              <div class="stat-label">Events</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Team carousel -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <h2>Our Team</h2>
+          <div class="scroll-controls">
+            <button class="icon-btn" onclick="scrollRow('team-row', -1)" aria-label="Scroll left">‹</button>
+            <button class="icon-btn" onclick="scrollRow('team-row', 1)" aria-label="Scroll right">›</button>
+          </div>
+        </div>
+        <div id="team-row" class="row-scroll">
+          <div class="card team-card">
+            <div class="avatar"><img src="./Waseem president.jpg" alt="Waseem Ahmed Abbasi"
+                style="width: 100%; height: 100%; object-fit: cover;"></div>
+            <br>
+            <h4>Waseem Ahmed Abbasi</h4>
+            <p>President</p>
+          </div>
+          <div class="card team-card">
+            <div class="avatar"><img src="./Qasar.jpg" alt=""></div>
+            <br>
+            <h4>Qasar Habib</h4>
+            <p>Chairman</p>
+          </div>
+          <div class="card team-card">
+            <div class="avatar"><img src="./Karim Deptuy.jpg" alt=""></div>
+            <br>
+            <h4>Karim Chandio </h4>
+            <p>Deputy Information Secretary</p>
+
+          </div>
+          <div class="card team-card">
+            <div class="avatar"><img src="./Auranzab Genral.jpg" alt=""></div>
+            <br>
+            <h4>Aurangzeb Baloch </h4>
+            <p>General Secretary</p>
+
+          </div>
+          <div class="card team-card">
+            <div class="avatar"><img src="./Tariq IS.jpg" alt=""></div>
+            <br>
+            <h4>Tariq Khan </h4>
+            <p>Information Secretary</p>
+
+          </div>
+          <div class="card team-card">
+            <div class="avatar"><img src="./Qamar DOS.jpg" alt=""></div>
+            <br>
+            <h4>Qamar Iqbal Qureshi
+            </h4>
+            <p>Deputy Office Secretary
+            </p>
+          </div>
+
+          <div class="card team-card">
+            <div class="avatar"><img src="./Tariq IS.jpg" alt=""></div>
+            <br>
+            <h4>Hafiz </h4>
+            <p>Office Secretary</p>
+
+          </div>
+
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Map -->
+    <section class="section map-section">
+      <div class="container">
+        <div class="section-header">
+          <h2>Find Us</h2>
+        </div>
+        <div class="grid-2" style="gap: 2rem; align-items: start;">
+          <div>
+            <div class="card" style="margin-bottom: 1.5rem;">
+              <h3 style="margin: 0 0 1rem; color: var(--accent);">📍 Office Address</h3>
+              <p style="margin: 0; line-height: 1.6;">
+                <strong>Office No 51, Ground Floor</strong><br>
+                Street No 4, Sector A/3<br>
+                Saeedabad, Baldia Town<br>
+                Karachi, Pakistan
+              </p>
+            </div>
+            <div class="card">
+              <h3 style="margin: 0 0 1rem; color: var(--accent);">🕒 Office Hours</h3>
+              <p style="margin: 0; line-height: 1.6;">
+                <strong>Monday - Friday:</strong> 9:00 AM - 6:00 PM<br>
+                <strong>Saturday:</strong> 10:00 AM - 4:00 PM<br>
+                <strong>Sunday:</strong> Closed
+              </p>
+            </div>
+          </div>
+          <div class="map-embed fade-in">
+            <iframe loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+              src="https://www.google.com/maps?q=Office+No+51+Ground+Floor+Street+No+4+Sector+A/3+Saeedabad+Baldia+Town+Karachi&output=embed">
+            </iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div>
+        <h4>District Keamari Press Club</h4>
+        <p style="margin-bottom: 1rem;">Serving the journalistic community of Keamari with integrity, professionalism,
+          and unwavering commitment to press freedom.</p>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
+          <div>
+            <strong style="color: var(--accent);">📧 Email:</strong> <br>
+            <a href="mailto:info@keamaripressclub.pk" style="color: var(--muted);">info@keamaripressclub.pk</a>
+          </div>
+          <div>
+            <strong style="color: var(--accent);">📞 Phone:</strong><br>
+            <a href="tel:+923001234567" style="color: var(--muted);">+92 3432107413</a>
+          </div>
+        </div>
+        <p style="font-size: 0.875rem; color: var(--muted);">
+          <strong>Office Address:</strong> Office No 51, Ground Floor, Street No 4, Sector A/3, Saeedabad, Baldia Town,
+          Karachi
+        </p>
+      </div>
+      <div class="footer-social">
+        <a href="https://www.facebook.com/people/District-Keamari-Press-Culb/pfbid0tWHvBYdqN8vMpjxTjmDoHqHrpgbZVQFHSi7DSgUSi3fm92gQ2iyWnnaSA15GFQAMl/"
+          aria-label="Facebook" class="icon-link" title="Facebook">
+          <svg viewBox="0 0 24 24" class="icon">
+            <path
+              d="M22 12.06C22 6.49 17.52 2 11.95 2S2 6.49 2 12.06c0 4.99 3.66 9.13 8.44 9.95v-7.03H7.9v-2.92h2.54V9.41c0-2.5 1.49-3.89 3.77-3.89 1.09 0 2.23.2 2.23.2v2.45h-1.25c-1.24 0-1.63.77-1.63 1.56v1.87h2.78l-.44 2.92h-2.34V22c4.79-.82 8.44-4.96 8.44-9.95z" />
+          </svg>
+        </a>
+        <a href="#" aria-label="Twitter" class="icon-link" title="Twitter">
+          <svg viewBox="0 0 24 24" class="icon">
+            <path
+              d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z" />
+          </svg>
+        </a>
+        <a href="https://www.youtube.com/@DistrictkeamaripressCulb/shorts" aria-label="YouTube" class="icon-link"
+          title="YouTube">
+          <svg viewBox="0 0 24 24" class="icon">
+            <path
+              d="M23.5 6.2a3.01 3.01 0 00-2.12-2.13C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.38.57A3.01 3.01 0 00.5 6.2 31.78 31.78 0 000 12a31.78 31.78 0 00.5 5.8 3.01 3.01 0 002.12 2.13C4.5 20.5 12 20.5 12 20.5s7.5 0 9.38-.57a3.01 3.01 0 002.12-2.13A31.78 31.78 0 0024 12a31.78 31.78 0 00-.5-5.8zM9.75 15.5v-7l6 3.5-6 3.5z" />
+          </svg>
+        </a>
+        <a href="https://www.instagram.com/reel/DMSOgVAtpQ_/?igsh=MXc2bjBiZmFtbGdkcA==" aria-label="Instagram"
+          class="icon-link" title="Instagram">
+          <svg viewBox="0 0 24 24" class="icon">
+            <path
+              d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+          </svg>
+        </a>
+        <a href="https://vt.tiktok.com/ZSSE83NNh/" aria-label="TikTok" class="icon-link" title="TikTok">
+          <svg viewBox="0 0 24 24" class="icon">
+            <path
+              d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z" />
+          </svg>
+        </a>
+        <a href="https://l.likee.video/v/EmaBTu" aria-label="Likee" class="icon-link" title="Likee">
+          <svg viewBox="0 0 24 24" class="icon">
+            <path
+              d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
+          </svg>
+        </a>
+      </div>
+    </div>
+    <div class="subfooter">© <span id="year"></span> District Keamari Press Club. All rights reserved. | Promoting Press
+      Freedom & Professional Journalism</div>
+  </footer>
+
+  <script>
+    // set year in footer
+    const y = document.getElementById('year'); if (y) y.textContent = new Date().getFullYear();
+  </script>
+</body>
+
+</html>

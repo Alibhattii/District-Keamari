@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Dashboard - District Keamari Press Club</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script defer src="script.js"></script>
+</head>
+<body>
+
+<header class="navbar">
+  <div class="container nav-inner">
+    <a href="index.html" class="brand" style="display: flex; align-items: center; gap: 0.75rem;">
+      <img src="logo.png" alt="District Keamari Press Club Logo" style="height: 40px; width: auto;" />
+      District Keamari Press Club
+    </a>
+    <!-- Admin is intentionally not exposed in nav -->
+  </div>
+</header>
+<main>
+  <!-- Login Section -->
+  <section class="section">
+    <div class="container">
+      <div id="loginBox" class="card form" style="max-width: 400px; margin: 0 auto;">
+        <div style="text-align: center; margin-bottom: 2rem;">
+          <h2 style="margin: 0 0 0.5rem; color: var(--accent);">🔐 Admin Login</h2>
+          <p style="color: var(--muted); margin: 0;">Access the District Keamari Press Club Dashboard</p>
+        </div>
+        <div class="form-row">
+          <label for="user" style="font-weight: 600; color: var(--text);">Username</label>
+          <input id="user" type="text" placeholder="Enter username" />
+        </div>
+        <div class="form-row">
+          <label for="pass" style="font-weight: 600; color: var(--text);">Password</label>
+          <input id="pass" type="password" placeholder="Enter password" />
+        </div>
+        <button class="btn" onclick="login()" style="width: 100%; margin-top: 1rem;">
+          <span>🔑 Login to Dashboard</span>
+        </button>
+        <div style="margin-top: 1rem; padding: 1rem; background: rgba(59,130,246,0.1); border-radius: var(--radius); border-left: 4px solid var(--accent);">
+          <p style="margin: 0; font-size: 0.875rem; color: var(--accent);">
+            <strong>Demo Credentials:</strong><br>
+            Username: <strong>Ali</strong> | Password: <strong>ali</strong>
+          </p>
+        </div>
+        <p id="loginStatus" class="muted" style="text-align: center; margin-top: 1rem;"></p>
+      </div>
+
+      <!-- Dashboard Section -->
+      <div id="dashboard" class="dashboard hidden">
+        <!-- Dashboard Header -->
+        <div class="section-header">
+          <div>
+            <h1 style="margin: 0; font-size: 2.5rem; background: var(--gradient-primary); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Admin Dashboard</h1>
+            <p style="margin: 0.5rem 0 0; color: var(--muted); font-size: 1.125rem;">Manage your press club content and communications</p>
+          </div>
+          <div class="actions">
+            <button class="btn outline" onclick="logout()">
+              <span>🚪 Logout</span>
+            </button>
+            <a class="btn" href="news.html">
+              <span>📰 View News</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Dashboard Stats -->
+        <div class="stats-grid" style="margin-bottom: 2rem;">
+          <div class="stat-card">
+            <div class="stat-number" id="messageCount">0</div>
+            <div class="stat-label">Total Messages</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number" id="videoCount">0</div>
+            <div class="stat-label">Uploaded Videos</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number" id="recentMessages">0</div>
+            <div class="stat-label">New Messages (24h)</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number" id="lastLogin">-</div>
+            <div class="stat-label">Last Login</div>
+          </div>
+        </div>
+
+        <!-- Main Dashboard Grid -->
+        <div class="admin-grid" style="gap: 2rem;">
+          <!-- Messages Management -->
+          <div class="card" style="flex: 1;">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.5rem;">
+              <h3 style="margin: 0; color: var(--accent);">💬 Contact Messages</h3>
+              <button class="btn" onclick="showMessages()">
+                <span>📋 View All Messages</span>
+              </button>
+            </div>
+            <div id="messagesBox" class="list" style="max-height: 400px; overflow-y: auto;"></div>
+          </div>
+
+          <!-- Video Upload -->
+          <div class="card" style="flex: 1;">
+            <h3 style="margin: 0 0 1.5rem; color: var(--accent);">🎥 Upload Video Content</h3>
+            
+            <div class="form-row">
+              <label for="vtitle" style="font-weight: 600; color: var(--text);">Video Title *</label>
+              <input id="vtitle" type="text" placeholder="Enter a descriptive title for the video" />
+            </div>
+            
+            <div class="form-row">
+              <label for="vdesc" style="font-weight: 600; color: var(--text);">Description</label>
+              <textarea id="vdesc" rows="3" placeholder="Provide a brief description of the video content..."></textarea>
+            </div>
+            
+            <div class="form-row">
+              <label style="font-weight: 600; color: var(--text);">Video Source</label>
+              <div style="display: flex; flex-direction: column; gap: 1rem;">
+                <div style="position: relative;">
+                  <label style="display: block; margin-bottom: 0.5rem; color: var(--accent); font-weight: 500;">
+                    <span>🔗 YouTube Video Link (Recommended)</span>
+                  </label>
+                  <input id="ytlink" type="url" placeholder="https://www.youtube.com/watch?v=..." style="width: 100%;" />
+                  <div style="margin-top: 0.5rem; font-size: 0.875rem; color: var(--muted);">
+                    Supports: youtube.com/watch?v=, youtu.be/, youtube.com/embed/
+                  </div>
+                </div>
+                
+                <div style="text-align: center; color: var(--muted); font-weight: 500;">— OR —</div>
+                
+                <div style="position: relative;">
+                  <label style="display: block; margin-bottom: 0.5rem; color: var(--accent); font-weight: 500;">
+                    <span>📁 Upload Video File</span>
+                  </label>
+                  <input id="vfile" type="file" accept="video/*" style="width: 100%; padding: 0.75rem; border: 2px dashed var(--border); border-radius: var(--radius); background: rgba(59,130,246,0.05);" />
+                  <div style="margin-top: 0.5rem; font-size: 0.875rem; color: var(--muted);">
+                    Max size: 40MB | Supported: MP4, WebM, MOV
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <button class="btn" onclick="applyVideo()" style="width: 100%; margin-top: 1.5rem;">
+              <span>✅ Upload to News Section</span>
+            </button>
+            
+            <div id="videoStatus" class="muted" style="text-align: center; margin-top: 1rem; padding: 1rem; border-radius: var(--radius);"></div>
+          </div>
+        </div>
+
+        <!-- Recent Activity -->
+        <div class="card" style="margin-top: 2rem;">
+          <h3 style="margin: 0 0 1.5rem; color: var(--accent);">📊 Recent Activity</h3>
+          <div id="activityLog" style="display: grid; gap: 1rem;">
+            <!-- Activity items will be populated by JavaScript -->
+          </div>
+        </div>
+
+        <!-- Remove All Videos Button -->
+        <button class="btn outline" onclick="removeAllVideos()" style="margin-bottom: 1rem;">
+          🗑️ Remove All Videos
+        </button>
+      </div>
+    </div>
+  </section>
+</main>
+<script defer src="admin.js"></script>
+
+<footer class="footer">
+  <div class="container footer-grid">
+    <div>
+      <h4>District Keamari Press Club</h4>
+      <p style="margin-bottom: 1rem;">Serving the journalistic community of Keamari with integrity, professionalism, and unwavering commitment to press freedom.</p>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
+        <div>
+          <strong style="color: var(--accent);">📧 Email:</strong><br>
+          <a href="mailto:info@keamaripressclub.pk" style="color: var(--muted);">info@keamaripressclub.pk</a>
+        </div>
+        <div>
+          <strong style="color: var(--accent);">📞 Phone:</strong><br>
+          <a href="tel:+923001234567" style="color: var(--muted);">+92 300 123 4567</a>
+        </div>
+      </div>
+      <p style="font-size: 0.875rem; color: var(--muted);">
+        <strong>Office Address:</strong> Office No 51, Ground Floor, Street No 4, Sector A/3, Saeedabad, Baldia Town, Karachi
+      </p>
+    </div>
+    <div class="footer-social">
+      <a href="#" aria-label="Facebook" class="icon-link" title="Facebook">
+        <svg viewBox="0 0 24 24" class="icon"><path d="M22 12.06C22 6.49 17.52 2 11.95 2S2 6.49 2 12.06c0 4.99 3.66 9.13 8.44 9.95v-7.03H7.9v-2.92h2.54V9.41c0-2.5 1.49-3.89 3.77-3.89 1.09 0 2.23.2 2.23.2v2.45h-1.25c-1.24 0-1.63.77-1.63 1.56v1.87h2.78l-.44 2.92h-2.34V22c4.79-.82 8.44-4.96 8.44-9.95z"/></svg>
+      </a>
+      <a href="#" aria-label="Twitter" class="icon-link" title="Twitter">
+        <svg viewBox="0 0 24 24" class="icon"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/></svg>
+      </a>
+      <a href="#" aria-label="YouTube" class="icon-link" title="YouTube">
+        <svg viewBox="0 0 24 24" class="icon"><path d="M23.5 6.2a3.01 3.01 0 00-2.12-2.13C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.38.57A3.01 3.01 0 00.5 6.2 31.78 31.78 0 000 12a31.78 31.78 0 00.5 5.8 3.01 3.01 0 002.12 2.13C4.5 20.5 12 20.5 12 20.5s7.5 0 9.38-.57a3.01 3.01 0 002.12-2.13A31.78 31.78 0 0024 12a31.78 31.78 0 00-.5-5.8zM9.75 15.5v-7l6 3.5-6 3.5z"/></svg>
+      </a>
+      <a href="#" aria-label="Instagram" class="icon-link" title="Instagram">
+        <svg viewBox="0 0 24 24" class="icon"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+      </a>
+    </div>
+  </div>
+  <div class="subfooter">© <span id="year"></span> District Keamari Press Club. All rights reserved. | Promoting Press Freedom & Professional Journalism</div>
+</footer>
+
+<script>
+  // set year in footer
+  const y = document.getElementById('year'); if (y) y.textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
